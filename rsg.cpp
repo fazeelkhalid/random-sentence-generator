@@ -7,24 +7,53 @@ using namespace std;
 //#include "RandomSentenceGenerator.h"
 
 
-class RandomSentenceGenerator {
+
+class Grammar {
 public:
-    int x, y, z;
-    RandomSentenceGenerator();
+    //Grammar();
+    Grammar(string);
+    void typer();
+};
+// Grammar::Grammar() {
+//     cout << "\nEmpty Grammar not allowed" << endl;
+// }
+Grammar::Grammar(string filename) {
+    ifstream file(filename);
+    cout << "Trying to open " << filename << "..."  << endl;
+    if(file.is_open()) {
+        string line;
+        while (getline(file, line)) {
+            //cout << line << endl;
+        }
+        file.close();
+    } else {
+        cout << "\nUnable to open input file." << endl;
+    }
+};
+
+void Grammar::typer() {
+    cout << "\nG is typing" << endl;
+};
+
+class RandomSentenceGenerator {
+private:
+    Grammar grammar;
+public:
+    
+    RandomSentenceGenerator(string);
     void typeSomething();
 };
 
-RandomSentenceGenerator::RandomSentenceGenerator() {
+RandomSentenceGenerator::RandomSentenceGenerator(string filename) : grammar(filename) {
     cout << "\n creating " << endl;
-    this->x = 20;
-    this->y = 30;
-    this->z = 40;
+    grammar = Grammar(filename);
 };
 
- 
+
 void RandomSentenceGenerator::typeSomething() {
-    cout << " \n what shall i type? \n ";
-}
+    grammar.typer();
+    
+};
 
 
 
@@ -32,23 +61,9 @@ int main(int argc, char* argv[]) {
     // validate command line arguments
     if(argc==2) {
         // validate file availability
-        
-        ifstream file(argv[1]);
-        cout << "Trying to open " << argv[1] << "..."  << endl;
-        if(file.is_open()) {
-            string line;
-            while (getline(file, line)) {
-                cout << line << endl;
-            }
-            file.close();
-            RandomSentenceGenerator gen;
+            RandomSentenceGenerator gen = RandomSentenceGenerator(argv[1]);
             gen.typeSomething();
-        } else {
-            cout << "\nUnable to open input file." << endl;
-        }
-
         
-
     } else {
         cout << "Usage: rsg <grammar_file>" << endl;
     }
