@@ -1,0 +1,14 @@
+{
+<start>
+some thing with <object> ;
+}
+{
+<object>
+option1 ;
+option2 ;
+}
+{
+<verb> 
+v1 ;
+v2 ;
+}
