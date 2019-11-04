@@ -13,6 +13,7 @@ private:
 public:
     
     RandomSentenceGenerator(string filename);
+    string getRandomPossibility();
     friend ostream& operator<<(ostream& stream, RandomSentenceGenerator& rsg);
 };
 

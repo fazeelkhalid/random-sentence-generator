@@ -15,6 +15,7 @@ private:
 public:
     ~Grammar();
     Grammar(string);
+    Production getStart();
     friend ostream& operator<<(ostream& stream, Grammar& grm);
 };
 

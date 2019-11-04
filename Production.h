@@ -12,7 +12,7 @@ private:
     
 public:
     Production();
-    //Production(int n, string text);
+    string getName();
     
     bool isWaitingToStart();
     void start();
@@ -23,6 +23,9 @@ public:
     bool isEnded();
     void end();
 
+    string getRandom();
+
+    static bool containsProduction(string& text);
     static bool isProduction(string& text);
     static bool isPossibility(string& text);
     static bool isOpening(string& text);

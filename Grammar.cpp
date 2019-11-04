@@ -61,6 +61,14 @@ Grammar::~Grammar() {
     
 }
 
+Production Grammar::getStart() {
+    for(int i=0; i<productions.size(); i++) {
+        if(productions[i].getName() == "<start>") {
+            return productions[i];
+        }
+    }
+    return productions[0];
+}
 
 ostream& operator<<(ostream& stream, Grammar& grm) {
     for(int i=0; i<grm.productions.size(); i++) {

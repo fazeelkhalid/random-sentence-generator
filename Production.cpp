@@ -14,7 +14,9 @@ Production::Production() {
 void Production::addPossibility(string text) {
     this->possibilities.push_back(trim(text));
 }
-
+string Production::getName() {
+    return this->name;
+}
 
 bool Production::isWaitingToStart() {  return this->state == WAITING_FOR_START; }
 void Production::start() { if(this->state == WAITING_FOR_START) { this->state = WAITING_FOR_NAME; } }
@@ -37,6 +39,17 @@ bool Production::isOpening(string& text) {
 }
 bool Production::isClosing(string& text) {
     return contains(text, "}") ;
+}
+
+string Production::getRandom() {
+    int r = random(possibilities.size()-1);
+    return possibilities[r];
+}
+
+bool Production::containsProduction(string& text) {
+    
+    return contains(text, "<") && contains(text,">");
+
 }
 
 ostream& operator << (ostream& str, Production& p) {

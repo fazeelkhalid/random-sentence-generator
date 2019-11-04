@@ -3,6 +3,7 @@ The Poem grammar
 <start>
     The ​<object>​ ​<verb>​ tonight. ;
     An <object> <verb>.;
+    to be or not to be that is the question ;
 }
 {
 <object>
