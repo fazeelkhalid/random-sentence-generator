@@ -29,7 +29,7 @@ Grammar::Grammar(string filename) {
 
             if(currentProduction.isWaitingForPossibilities() && Production::isPossibility(line)) {
                 //cout << "[poss]" << line << endl;
-                vector<string> arr = explode(line, ';');
+                vector<string> arr = explode(trim(line), ';');
                 if(arr.size()>0) {
                     for(int i=0; i<arr.size(); i++) {
                         currentProduction.addPossibility(arr[i]);
