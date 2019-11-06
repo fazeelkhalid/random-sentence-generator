@@ -2,11 +2,22 @@
 #define PRODUCTION_H
 #include <iostream>
 #include <vector>
+#include "util.h"
 
 using namespace std;
+
+
+enum State {
+    WAITING_FOR_START,
+    WAITING_FOR_NAME,
+    WAITING_FOR_POSSIBILITY,
+    ENDED
+};
+
+
 class Production {
 private:
-    int state;
+    State state;
     string name;
     vector<string> possibilities;
     
@@ -25,11 +36,7 @@ public:
 
     string getRandom();
 
-    static bool containsProduction(string& text);
-    static bool isProduction(string& text);
-    static bool isPossibility(string& text);
-    static bool isOpening(string& text);
-    static bool isClosing(string& text);
+   
 
     friend ostream& operator<<(ostream& str, Production& l);
 };

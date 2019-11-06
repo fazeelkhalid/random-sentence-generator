@@ -2,8 +2,12 @@
 #define GRAMMAR_H
 
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include "Production.h"
+#include "util.h"
+#include "Text.h"
+
 
 using namespace std;
 

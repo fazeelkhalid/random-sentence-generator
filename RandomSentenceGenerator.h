@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "Grammar.h"
+#include "Text.h"
 
 using namespace std;
 
