@@ -13,9 +13,9 @@ int main(int argc, char* argv[]) {
 
     // validate command line arguments
     if(argc==2) {
-        // validate file availability
+        string start = "<start>";
             RandomSentenceGenerator gen = RandomSentenceGenerator(argv[1]);
-            cout << gen.getRandomPossibility() << endl;
+            cout << gen.getSentence(start) << endl;
         
     } else {
         cout << "Usage: rsg <grammar_file>" << endl;

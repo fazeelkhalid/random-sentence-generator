@@ -9,6 +9,10 @@ string rtrim(const string& s) {
 	return regex_replace(s, regex("[\\s;]+$"), string(""));
 }
 
+string cleanUp(string str) {
+    return regex_replace(str, regex("[\\s]{2,}"), string(" "));
+}
+
 string trim(const string& s) {
 	return ltrim(rtrim(s));
 }
@@ -17,6 +21,7 @@ bool contains(const string hayStack, const string needle) {
     int result = hayStack.find(needle);
     return (result != string::npos);        
 }
+
 
 
 vector<string> split(const string& str, const char& ch) {

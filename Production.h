@@ -24,6 +24,7 @@ private:
 public:
     Production();
     string getName();
+    string getRandomPossibility();
     
     bool isWaitingToStart();
     void start();
@@ -33,8 +34,6 @@ public:
     void addPossibility(string text);
     bool isEnded();
     void end();
-
-    string getRandom();
 
    
 

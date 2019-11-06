@@ -58,13 +58,31 @@ Grammar::~Grammar() {
     
 }
 
-Production Grammar::getStart() {
-    for(int i=0; i<productions.size(); i++) {
-        if(productions[i].getName() == "<start>") {
-            return productions[i];
-        }
+string Grammar::resolve(string text) {
+    if(text.length()==0) {
+        return "";
     }
-    return productions[0];
+    if(!Text::containsProduction(text)) {
+        return trim(text);
+    } else {
+        int s = text.find("<");
+        int e = text.find(">");
+        string firstPart = trim(text.substr(0, s));
+        string toResolve = text.substr(s, e - s + 1);
+        
+        string resolved = " Could not resolve " + toResolve;
+
+        for(int i=0; i<productions.size(); i++) {
+            if(productions[i].getName() == toResolve) {
+                resolved = trim(productions[i].getRandomPossibility());
+                break;
+            }
+        }
+        string lastPart = trim(text.substr(e+1));
+
+        return cleanUp( firstPart + " " +  Grammar::resolve(resolved)  + Grammar::resolve(lastPart));
+
+    }
 }
 
 ostream& operator<<(ostream& stream, Grammar& grm) {

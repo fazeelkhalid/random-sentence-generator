@@ -2,6 +2,7 @@
 #define GRAMMAR_H
 
 #include <iostream>
+
 #include <fstream>
 #include <vector>
 #include "Production.h"
@@ -11,6 +12,7 @@
 
 using namespace std;
 
+
 class Grammar {
 private:
     int size;
@@ -19,7 +21,7 @@ private:
 public:
     ~Grammar();
     Grammar(string);
-    Production getStart();
+    string resolve(string text);
     friend ostream& operator<<(ostream& stream, Grammar& grm);
 };
 

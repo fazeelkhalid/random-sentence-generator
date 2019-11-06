@@ -19,10 +19,9 @@ bool Production::isWaitingForPossibilities()    { return this->state == WAITING_
 bool Production::isEnded()                      { return this->state == ENDED; }
 void Production::end()                          { if(this->state == WAITING_FOR_POSSIBILITY) { this->state = ENDED; } }
 
-
-string Production::getRandom() {
-    int r = random(possibilities.size()-1);
-    return possibilities[r];
+string Production::getRandomPossibility() {
+    int randomIndex = random(possibilities.size()-1);
+    return possibilities[randomIndex];
 }
 
 ostream& operator << (ostream& str, Production& p) {

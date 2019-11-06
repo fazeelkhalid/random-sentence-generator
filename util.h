@@ -13,5 +13,6 @@ string trim(const string& s);
 bool contains(const string hayStack, const string needle);
 vector<string> split(const string& str, const char& ch) ;
 int random(int max) ;
+string cleanUp(string str);
 
 #endif // UTIL_H

@@ -14,7 +14,8 @@ private:
 public:
     
     RandomSentenceGenerator(string filename);
-    string getRandomPossibility();
+    string getSentence(string& production);
+    
     friend ostream& operator<<(ostream& stream, RandomSentenceGenerator& rsg);
 };
 

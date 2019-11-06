@@ -2,8 +2,8 @@ The Poem grammar
 {
 <start>
     The ​<object>​ ​<verb>​ tonight. ;
-    An <object> <verb>.;
-    to be or not to be that is the question ;
+    A <object> <verb>. ;
+    To <verb> or not to <verb> that is the <object>. ;
 }
 {
 <object>
