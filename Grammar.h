@@ -7,7 +7,7 @@
 #include <vector>
 #include "Production.h"
 #include "util.h"
-#include "Text.h"
+
 
 
 using namespace std;
@@ -15,16 +15,19 @@ using namespace std;
 
 class Grammar {
 private:
-    int size;
+    // declare a private list of Production objects
     vector<Production> productions;
     
 public:
-    ~Grammar();
+    // the only constructor, expecting a file name to read
     Grammar(string);
+    // destructor for freeing up memory allocated for the list
+    ~Grammar();
+    
+    // the recursive function that will build the sentence
     string resolve(string text);
-    friend ostream& operator<<(ostream& stream, Grammar& grm);
+    
 };
 
-ostream& operator<<(ostream& stream, Grammar& grm);
 
 #endif //GRAMMAR_H

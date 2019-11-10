@@ -3,22 +3,22 @@
 
 #include <iostream>
 #include "Grammar.h"
-#include "Text.h"
 
 using namespace std;
 
 
 class RandomSentenceGenerator {
 private:
+    // declare a private property Grammar object
+    // that will handle generation of sentences
     Grammar grammar;
 public:
-    
+    // declare the only constructor that expects a string as filename
     RandomSentenceGenerator(string filename);
-    string getSentence(string& production);
     
-    friend ostream& operator<<(ostream& stream, RandomSentenceGenerator& rsg);
+    // the one method that can be called upon this object to 
+    // return a string (sentance) to main function
+    string getSentence(string& production);
 };
-
-ostream& operator<<(ostream& stream, RandomSentenceGenerator& rsg);
 
 #endif //RSG_H
